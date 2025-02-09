@@ -1,0 +1,16 @@
+.loader{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border-top: 5px solid rgb(11, 177, 243);
+    animation: loaderanim 1s infinite linear;
+}
+@keyframes loaderanim {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+

@@ -1,0 +1,9 @@
+.home-container{
+    display: flex;
+    height: 100vh;
+}
+@media(max-width:636px){
+    .home-container{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,22 @@
+.sidebar{
+    width: 150px;
+    background-color: #e2e2e2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100vh;
+    color: black;
+}
+@media(max-width:636px){
+    .sidebar{
+        z-index: 10;
+        width: 80px;
+        transform: translateX(-160px);
+        transition: 0.5s;
+    }
+    .collapse{
+        transform: translateX(0px);
+    }
+}

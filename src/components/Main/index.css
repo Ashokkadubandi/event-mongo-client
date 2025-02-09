@@ -1,0 +1,135 @@
+.main{
+    margin-left: 240px;
+    padding-top: 1rem;
+    padding-left: 0rem;
+    padding-right: 0.2rem;
+    overflow-x: auto;
+    width: 100%;
+}
+.mob-view{
+    display: none;
+}
+@media(max-width:636px){
+    .main{
+        margin: 0;
+    }
+    .mob-view{
+        display: block;
+        position: sticky;
+        top: -20px;
+        left: 0;
+        right: 0;
+        background: transparent;
+        z-index: 999;
+    }
+
+}
+.event-banner{
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    display: flex;
+    overflow-x: scroll;
+}
+.event-banner::-webkit-scrollbar{
+    display: none;
+}
+.event-banner img{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+.filters-list{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-left: 0;
+    list-style-type: none;
+}
+.filter-btn{
+    display: flex;
+    justify-content: space-between;
+    width: 22%;
+}
+.filters-list li{
+    padding: 0.5rem;
+    border: 1px solid rgb(73, 73, 73);
+    border-radius: 25px;
+
+}
+.filters-list li button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.category-filters{
+    width: 15%;
+}
+.category-filters select{
+    padding: 0.4rem;
+    border-radius: 15px;
+    outline: none;
+}
+.main h1{
+    padding-top: 1rem;
+}
+.events-show-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: rem;
+}
+.events-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style-type: none;
+    align-items: center;
+}
+
+.events-container li{
+    max-width: 500px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem;
+    background-color: rgb(133, 178, 223);
+    border-radius: 10px;
+    border-width: 0;
+}
+.events-container li img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 10px;
+}
+.event-content{
+    padding-left: 0.5rem;
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    opacity: 1;
+    transform: translateX(-200px);
+    transition: 0.5s;
+}
+.events-container li:hover img{
+    filter: blur(5px);
+}
+.events-container li:hover .event-content{
+    transform: translateX(50px);
+}
+.event-name{
+    font-family: 'Liter',serif;
+    font-size: 2rem;
+    width: 90%;
+    font-weight: bold;
+    color: rgb(245, 242, 242);
+    text-shadow: 2px 2px 12px black;
+}
+.event-time{
+    font-size: large;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 12px rgb(17, 17, 17);
+}
