@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
 import Cookies from 'js-cookie'
 import './index.css'
@@ -22,7 +23,8 @@ const [errorMsg,changeErrorMsg] = useState('')
 
 
 const redirectPage = data => {
-    let jwt = Cookies.set('jwt',data.jwtToken,{expires:10})
+    Cookies.set('jwt',data.jwtToken,{expires:10})
+    return <Navigate to='/' replace/>
 }
 
 const getLogApi = async () => {
@@ -113,6 +115,9 @@ const Loader = () => (
       />
 )
 
+if(Cookies.get('jwt') !== undefined){
+    return <Navigate to='/' replace/>
+}
 
   return (
     <div className='login-app'>

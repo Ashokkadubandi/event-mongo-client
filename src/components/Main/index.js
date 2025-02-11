@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { IoMdMenu } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 import './index.css'
 import Loader from '../Loader/Loader'
 import NavBar from '../contextProvider/context'
@@ -116,17 +118,18 @@ const Main = () => {
           const {navstatus,setNavstatus} = value
           return (
             <div className='mob-view'>
-              {navstatus ? <button onClick={() => setNavstatus(!navstatus)}>X</button>:
-              <button onClick={() => setNavstatus(!navstatus)}>Y</button>}
+              {navstatus ? 
+              <button onClick={() => setNavstatus(!navstatus)}>
+                <IoMdClose/>
+              </button>:
+              <button onClick={() => setNavstatus(!navstatus)}>
+                <IoMdMenu/>  
+              </button>}
             </div>
           )
         }}
       </NavBar.Consumer>
-      <div className='event-banner'>
-        <img alt="img" src='https://i.ytimg.com/vi/OPjWyLRDYG4/maxresdefault.jpg'/>
-        <img alt="img" src='https://i.ytimg.com/vi/OPjWyLRDYG4/maxresdefault.jpg'/>
-        <img alt="img" src='https://i.ytimg.com/vi/OPjWyLRDYG4/maxresdefault.jpg'/>
-      </div>
+      {/* <div className='event-banner'>Banner</div> */}
       <ul className='filters-list'>
         <div className='filter-btn'>
           <li onClick={() => getEVents({type:'upt'})}>

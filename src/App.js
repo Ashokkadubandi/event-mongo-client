@@ -1,4 +1,5 @@
-// import Login from './components/Login';
+import Login from './components/Login';
+import {Routes,Route} from 'react-router-dom'
 import Home from './components/Home';
 import './App.css'
 import NavBar from './components/contextProvider/context';
@@ -12,7 +13,10 @@ function App(){
   // }
   return (
     <NavBar.Provider value={{navstatus,setNavstatus}}>
-    <Home/>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/' element={<Home/>}/>
+      </Routes>
     </NavBar.Provider>
   )
 }
