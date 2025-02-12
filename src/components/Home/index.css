@@ -4,6 +4,6 @@
 }
 @media(max-width:636px){
     .home-container{
-        flex-direction: column;
+        flex-direction: row;
     }
 }

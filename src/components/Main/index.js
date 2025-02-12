@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import './index.css'
 import Loader from '../Loader/Loader'
 import NavBar from '../contextProvider/context'
+import { Link, useNavigate } from 'react-router-dom';
 
 const initialList = []
 
@@ -19,6 +22,13 @@ const Main = () => {
 
   const [eventsList,updateEvents] = useState(initialList)
   const [apiStatus,setApiStatus] = useState(apiStatusConstants.pending)
+  const navigate = useNavigate()
+
+  const removeAcc = () => {
+    Cookies.remove('jwt')
+    navigate('/login')
+
+  }
 
 
   const getEVents = async (prop) => {
@@ -72,17 +82,20 @@ const Main = () => {
     return (
       <ul className='events-container'>
         {eventsList.map(each => {
-          let {date,name,imgUrl} = each
+          let {date,name,imgUrl,_id} = each
+          
           date = date.split("-")
           let Modifydate = `${date[0]}-${date[1]}-${date[2].slice(0,2)}`
           return (
-            <li key={name}>
+            <Link to={`/event/${_id}`} className='link'>
+              <li key={name}>
               <img src={imgUrl} alt={`${name}`}/>
                 <div className='event-content'>
                 <h1 className='event-name'>{name}</h1>
                 <p className='event-time'>{Modifydate}</p>
                 </div>
             </li>
+            </Link>
           )
 
         })}
@@ -113,6 +126,9 @@ const Main = () => {
 
   return (
     <div className='main'>
+      <button className='log-out' onClick={() => removeAcc()}>
+        <span>Logout</span><RiLogoutCircleRLine/>
+      </button>
       <NavBar.Consumer>
         {value => {
           const {navstatus,setNavstatus} = value

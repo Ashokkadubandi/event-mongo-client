@@ -1,7 +1,8 @@
 import React from "react";
 
 const NavBar = React.createContext({
-    collapse:false
+    navstatus:false,
+    setNavstatus:() => {}
 })
 
 export default NavBar

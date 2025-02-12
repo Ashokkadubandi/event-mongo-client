@@ -1,14 +1,13 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    width: 150px;
+    width: 15%;
     background-color: #e2e2e2;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
+    bottom: 0;
     padding: 2rem;
     overflow-y: auto;
-    height: 100vh;
     color: black;
 }
 .sidebar button {
@@ -17,12 +16,13 @@
 
 @media(max-width:636px){
     .sidebar{
+        position: fixed;
+        top: 0;
         background: rgb(255, 251, 251);
         z-index: 10;
-        width: 120px;
-        transform: translateX(-200px);
+        transform: translateX(-600px);
         transition: 0.5s;
-        padding-top: 3rem;
+        width: 40%;
     }
     .collapse{
         transform: translateX(0px);

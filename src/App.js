@@ -4,6 +4,8 @@ import Home from './components/Home';
 import './App.css'
 import NavBar from './components/contextProvider/context';
 import { useState } from 'react';
+import Events from './components/Events';
+
 
 function App(){
   const [navstatus,setNavstatus] = useState(false)
@@ -16,6 +18,7 @@ function App(){
       <Routes>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Home/>}/>
+        <Route path='/event/:id' element={<Events/>}/>
       </Routes>
     </NavBar.Provider>
   )
