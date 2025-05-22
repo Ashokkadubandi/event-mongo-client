@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cookies from 'js-cookie'
 import './index.css'
 import NavBar from '../contextProvider/context'
 import { useNavigate } from 'react-router-dom'
 
+
 const SideBar = () => {
   const navigate = useNavigate()
+  const [userDetail,setUserDetail] = useState(JSON.parse(localStorage.getItem('userDetails')))
 
   const getLogout = () => {
     Cookies.remove('jwt')
     navigate('/login')
   }
+
   return (
     <NavBar.Consumer>
       {value => {
@@ -24,8 +27,8 @@ const SideBar = () => {
           <div className={`sidebar ${navbarStatus}`}>
               <div className='user-info'>
                 <div className='user-detail'>
-                  <p>Ashok</p>
-                  <p>ashok@2025</p>
+                  <p>{userDetail.name}</p>
+                  <p>{userDetail.mail}</p>
                 </div>
               </div>
               <button onClick={() => clearStateRules()}>Logout</button>

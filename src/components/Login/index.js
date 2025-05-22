@@ -24,6 +24,8 @@ const [errorMsg,changeErrorMsg] = useState('')
 
 const redirectPage = data => {
     Cookies.set('jwt',data.jwtToken,{expires:10})
+    console.log(data)
+    localStorage.setItem('userDetails',JSON.stringify(data.user))
     return <Navigate to='/' replace/>
 }
 
@@ -46,6 +48,10 @@ const getLogApi = async () => {
         changeUserData(user)
         changeApiStatus(apiStatus.success)
         redirectPage(data)
+    }else{
+        console.log('error')
+        changeApiStatus('')
+        changeErrorMsg('Please enter valid details')
     }
 }
 
