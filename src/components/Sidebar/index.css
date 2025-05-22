@@ -6,7 +6,9 @@
     position: sticky;
     top: 0;
     bottom: 0;
-    padding: 2rem;
+    padding-top: 1rem;
+    padding-left: 5px;
+    padding-right: 5px;
     overflow-y: auto;
     color: black;
 }
@@ -14,7 +16,25 @@
     display: none;
 }
 
+.user-info{
+    background-color: rgb(255, 244, 244);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+}
 
+.user-detail{
+    padding: 0.1rem;
+}
+.user-detail h4{
+    font-size: 2rem;
+}
+.user-detail h4::first-letter{
+    text-transform: uppercase;
+    color: rgb(199, 0, 0);
+    font-weight: bold;
+}
 
 @media(max-width:636px){
     .sidebar{

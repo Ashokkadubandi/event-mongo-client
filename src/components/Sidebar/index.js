@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Cookies from 'js-cookie'
 import './index.css'
 import NavBar from '../contextProvider/context'
+import { FaRegUserCircle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
 
 
@@ -27,9 +28,10 @@ const SideBar = () => {
           <div className={`sidebar ${navbarStatus}`}>
               <div className='user-info'>
                 <div className='user-detail'>
-                  <p>{userDetail.name}</p>
+                  <h4>{userDetail.name}</h4>
                   <p>{userDetail.mail}</p>
                 </div>
+                <FaRegUserCircle color='red' size={'3rem'}/>
               </div>
               <button onClick={() => clearStateRules()}>Logout</button>
           </div>
